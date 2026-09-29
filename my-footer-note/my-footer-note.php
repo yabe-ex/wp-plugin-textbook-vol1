@@ -30,7 +30,7 @@ function create_my_footer_note_menu() {
 
 function show_my_footer_note_setting() {
     if (isset($_POST['save_settings']) && check_admin_referer(MY_FOOTER_NOTE_PREFIX . 'save_settings')) {
-        update_option(MY_FOOTER_NOTE_PREFIX . 'note', sanitize_textarea_field($_POST['note']));
+        update_option(MY_FOOTER_NOTE_PREFIX . 'note', sanitize_textarea_field(wp_unslash($_POST['note'])));
 
         echo "<div class='notice notice-success is-dismissible'><p>設定を保存しました。</p></div>";
     }
